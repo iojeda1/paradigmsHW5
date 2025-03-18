@@ -19,31 +19,31 @@ class Student(UniversityMember):
         super().__init__(name, member_id, email)
         self.major = major
     def get_role(self):
-        "Student"
+        return "Student"
     def __str__(self):
         return f"{self.name} ({self.email}) - Major: {self.major}"
 
 class Professor(UniversityMember):
     def __init__(self, name, member_id, email, department):
         super().__init__(name, member_id, email)
-        self.departnment = department
+        self.department = department
     def get_role(self):
-        "Professor"
+        return "Professor"
     def __str__(self):
         last_name = self.name.split()[-1] 
-        return f"Prof {last_name} ({self.email})"
+        return f"Prof. {last_name} ({self.email})"
     
 class TA(UniversityMember):
     def __init__(self, name, member_id, email):
         super().__init__(name, member_id, email)
         self.courses_assisting = [] # attribute 
     def get_role(self):
-        "TA"
+        return "TA"
     # method that takes as input a course and add to the field courses_assisting.
-    def assign_to_courses(self, course):
+    def assign_to_course(self, course):
         self.courses_assisting.append(course)
     def __str__(self):
-        courses_list = ", ".join([c.name for c in self.courses_assisting])
+        courses_list = ", ".join([c.code for c in self.courses_assisting]) # course code
         return f"{self.name} ({self.email}) TA for courses: {courses_list}"
 
 # does not inherit from university member 
@@ -68,4 +68,4 @@ class Course:
         self.instructor = None 
     def __str__(self):
         students_list = ", ".join([s.name for s in self.enrolled_students])
-        return f"Course: {self.name} ({self.code})\n Instructor: {self.instructor}\n Students: {students_list}\n TAs: {tas_list}"
+        return f"Course: {self.name} ({self.code})\n Instructor: {self.instructor}\n Students: {students_list}"
