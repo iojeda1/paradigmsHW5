@@ -68,4 +68,4 @@ class Course:
         self.instructor = None 
     def __str__(self):
         students_list = ", ".join([s.name for s in self.enrolled_students])
-        return f"Course: {self.name} ({self.code})\n Instructor: {self.instructor}\n Students: {students_list}"
+        return f"Course: {self.name} ({self.code})\n Instructor: {self.instructor}\n Students: {students_list}\n TAs: {tas_list}"

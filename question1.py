@@ -11,11 +11,11 @@ def move_robot(n):
     y = 0
     for r in range(n):
         dirx, diry = dir[i]
-        x += m*dirx
-        y += m*diry
+        x += m*dirx # move in the direction index
+        y += m*diry # move in the direction index
         res.append((x,y))
         i = (i+1)%4 # clockwise direction
-        m += 1
+        m += 1 # go to next move 
     return res 
 
 for v in move_robot(4):
